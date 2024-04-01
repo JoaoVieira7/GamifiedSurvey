@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: palegoldenrod;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.survey-container {
+    max-width: 800px;
+    margin: auto;
+}
+.question {
+    margin: 20px 0;
+}
+.question label {
+    display: block;
+    margin-bottom: 5px;
+}
+.question input[type="range"] {
+    width: 100%;
+}
+
+.question .range-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup{
+    border-radius: 20%;
+    display: none;
+    width: 150px;
+    height: 150px;
+    font-size: 2rem;
+}
+
+
+
+#submit-btn {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 16px 20px; /* Espaçamento interno para tornar o botão maior */
+    border: none; /* Remove a borda padrão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
+    font-size: 20px;
+    
+}
+
+#submit-btn:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilizando o ícone dentro do botão */
+#submit-btn i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto do botão */
+    
+}
+
+.fa-thumbs-up{
+    font-size: 20px;
+}
+
+.question .range-labels span {
+    font-size: 0.8em;
+}
+
+.radio {
+    margin-right: 10px; /* Espaçamento entre as opções */
+    display: flex;
+    align-items: center;
+}
+
+#feedback-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Garante que apareça acima de outros elementos */
+    text-align: center;
+}
+#progress-bar-container {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.hidden {
+
+    display: none;
+    
+    }
+
+#progress-bar {
+    height: 24px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 24px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+

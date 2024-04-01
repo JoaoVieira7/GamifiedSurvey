@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: auto;
+    color: palegoldenrod;
+}
+
+button {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 16px 20px; /* Espaçamento interno para tornar o botão maior */
+    border: none; /* Remove a borda padrão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    border-radius: 5px; /* Adiciona bordas arredondadas ao botão */ 
+}
