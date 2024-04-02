@@ -7,36 +7,50 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="survey-container">
-  <div id="progress-bar-container">
-    <div id="progress-bar" style="width: 0%;"></div>
+  <div class="points-bar-container">
+    <div class="points-bar">
+    </div>
   </div>
-    <h1>Inquérito de Satisfação com a Universidade</h1>
+  <h1>Inquérito de Satisfação com a Universidade</h1>
+  <div class="container"> 
+    <div class="survey-container">
+    <div id="progress-bar-container">
+      <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+    </div>
     <div id="container">
     <form method="POST" id="surveyForm">
+      
         <p>Please select your favourite player:</p>
+        <div id="question-1">
         <input type="radio" id="ronaldo" name="player" value="ronaldo">
         <label for="ronaldo">Ronaldo</label><br>
         <input type="radio" id="messi" name="player" value="messi">
         <label for="messi">Messi</label><br>  
         <input type="radio" id="maradona" name="player" value="maradona">
         <label for="maradona">Maradona</label><br><br>
+      </div>
         <hr />
+        
         <p>Please select your favourite color:</p>
+        <div id="question-2">
         <input type="radio" id="green" name="color" value="green">
         <label for="green">Green</label><br>
         <input type="radio" id="red" name="color" value="red">
         <label for="red">Red</label><br>  
         <input type="radio" id="blue" name="color" value="blue">
         <label for="blue">Blue</label><br><br>
+      </div>
         <hr />
+        
         <p>Please select your age:</p>
+        <div id="question-3">
         <input type="radio" id="age1" name="age" value="30">
         <label for="age1">0 - 30</label><br>
         <input type="radio" id="age2" name="age" value="60">
         <label for="age2">31 - 60</label><br>  
         <input type="radio" id="age3" name="age" value="100">
         <label for="age3">61 - 100</label><br><br>
+      </div>
         </div>
         <div id="feedback-popup" style="display: none;">Muito bem, +10 pontos!</div>
 
@@ -49,6 +63,8 @@
 
       </form> 
     
+
+</div>
 
 </div>
 

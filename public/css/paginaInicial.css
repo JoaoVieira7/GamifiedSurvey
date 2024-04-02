@@ -3,7 +3,22 @@ body{
     font-family: Arial, sans-serif;
     padding: 20px;
     margin: auto;
+    background-color: #00784D;
     color: palegoldenrod;
+}
+
+.container{
+    padding-top: 50px;
+}
+
+h1, h2, h3{
+    margin: 50px;
+}
+
+p{
+    left: 1%;
+    bottom: 0%;
+    position: absolute;
 }
 
 button {
@@ -13,4 +28,13 @@ button {
     border: none; /* Remove a borda padrão */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     border-radius: 5px; /* Adiciona bordas arredondadas ao botão */ 
+    font-size: 2rem;
+    font-family: monospace;
 }
+
+button:hover{
+    background-color: #c12f12;
+    transition-duration: 0.4s;
+    cursor:pointer;
+}
+    

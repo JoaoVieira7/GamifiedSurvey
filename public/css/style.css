@@ -1,10 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    color: palegoldenrod;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
+
+}
+
+h1{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    color: rgb(83, 83, 83);
+    background-color:antiquewhite;
 }
 
 @keyframes gradient {
@@ -18,10 +34,35 @@ body {
 		background-position: 0% 50%;
 	}
 }
+h1{
+    font-size: 2rem;
+}
+
+p{
+    font-size: 1.4rem;
+    font-family: fantasy;
+}
+
+.points-bar-container{
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    border-radius: 10%;
+    padding: 0;
+    background-color: aliceblue;
+    bottom: 10%; 
+    right: 5%;
+}
+
+.points-bar{
+    background-color: #45a049;
+
+}
 
 .survey-container {
     max-width: 800px;
     margin: auto;
+    cursor: pointer;
 }
 .question {
     margin: 20px 0;
@@ -47,8 +88,6 @@ body {
     font-size: 2rem;
 }
 
-
-
 #submit-btn {
     background-color: #4CAF50; /* Cor de fundo */
     color: white; /* Cor do texto */
@@ -57,11 +96,15 @@ body {
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
     font-size: 20px;
-    
+    margin-top: 20px;
+    display: block;
+    margin: 20px auto;
 }
 
 #submit-btn:hover {
-    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+    background-color: #1cde26; /* Cor de fundo ao passar o mouse */
+    transition-duration: 0.4s;
+
 }
 
 /* Estilizando o ícone dentro do botão */
@@ -78,10 +121,26 @@ body {
     font-size: 0.8em;
 }
 
-.radio {
-    margin-right: 10px; /* Espaçamento entre as opções */
+input[type="radio"] {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.8em;
+    width: 20px; /* Largura */
+    height: 20px; /* Altura */
+}
+
+label{
+    margin-right: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#question-1,
+#question-2,
+#question-3 {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
 }
 
 #feedback-popup {
@@ -96,17 +155,16 @@ body {
     z-index: 1000; /* Garante que apareça acima de outros elementos */
     text-align: center;
 }
+
 #progress-bar-container {
     width: 100%;
-    background-color: #eee;
+    background-color: #cee2ff;
     border-radius: 5px;
 }
 
 .hidden {
-
     display: none;
-    
-    }
+}
 
 #progress-bar {
     height: 24px;

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (progress < 35) {
             progressBar.style.backgroundColor = 'red'; // Cor de fundo para progresso abaixo de 35%
         } else if (progress >= 35 && progress < 68) {
-            progressBar.style.backgroundColor = 'yellow'; // Cor de fundo para progresso entre 35% e 65%
+            progressBar.style.backgroundColor = '#ffc107'; // Cor de fundo para progresso entre 35% e 65%
         } else {
             progressBar.style.backgroundColor = 'green'; // Cor de fundo para progresso acima de 65%
         }
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             break;
         case 2:
             img.src = 'images/like.png';
-            img.style.height = "150px";
+            img.style.height = "250px";
             break;
         case 3:
             img.src = 'images/yes.png';
