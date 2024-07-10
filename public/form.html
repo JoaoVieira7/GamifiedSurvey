@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquérito Gamificado</title>
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+
+    <div class="progress-bar-container">
+        <div class="progressbar" id="progressbar" style="transition: width 0.5s ease-in-out; width: 0%;"></div>
+    </div> 
+
+    <div class="survey-container">
+        <form action="/submit" id="survey-form" class="survey-form" method="POST">
+            <div class="question" id="question1">
+                <p>Qual é o teu futebolista preferido?</p>
+                <div class="radio-container">
+                    <input type="radio" id="ronaldo" name="player" value="ronaldo">
+                    <label for="ronaldo">Ronaldo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="messi" name="player" value="messi">
+                    <label for="messi">Messi</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="maradona" name="player" value="maradona">
+                    <label for="maradona">Maradona</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="neymar" name="player" value="neymar">
+                    <label for="neymar">Neymar</label>
+                </div>
+            </div>
+
+            <div class="question" id="question2">
+                <p>Como Descreves o Ambiente de Trabalho?</p>
+                <div class="radio-container">
+                    <input type="radio" id="1-pessimo" name="workenvironment" value="1-pessimo">
+                    <label for="1-pessimo">Pessimo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="2-melhorar" name="workenvironment" value="2-melhorar">
+                    <label for="2-melhorar">Muito a Melhorar</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="3-razoavel" name="workenvironment" value="3-razoavel">
+                    <label for="3-razoavel">Razoável</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="4-bom" name="workenvironment" value="4-bom">
+                    <label for="4-bom">Bom</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="5-excelente" name="workenvironment" value="5-excelente">
+                    <label for="5-excelente">Excelente</label>
+                </div>
+            </div>
+
+            <div class="question" id="question3">
+                <p>Cor Favorita:</p>
+                <div class="radio-container">
+                    <input type="radio" id="amarelo" name="color" value="amarelo">
+                    <label for="amarelo">Amarelo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="vermelho" name="color" value="vermelho">
+                    <label for="vermelho">Vermelho</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="verde" name="color" value="verde">
+                    <label for="verde">Verde</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="azul" name="color" value="azul">
+                    <label for="azul">Azul</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="roxo" name="color" value="roxo">
+                    <label for="roxo">Roxo</label>
+                </div>
+            </div>  
+
+            <div class="question" id="question4">
+                <p>Which cuisine do you prefer?</p>
+                <div class="radio-container">
+                    <input type="radio" id="italian" name="cuisine" value="italian">
+                    <label for="italian">Italian</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="mexican" name="cuisine" value="mexican">
+                    <label for="mexican">Mexican</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="japanese" name="cuisine" value="japanese">
+                    <label for="japanese">Japanese</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="indian" name="cuisine" value="indian">
+                    <label for="indian">Indian</label>
+                </div>
+            </div>
+
+            <div class="question" id="question5">
+                <p>What's your preferred mode of transportation?</p>
+                <div class="radio-container">
+                    <input type="radio" id="car" name="transportation" value="car">
+                    <label for="car">Car</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="bicycle" name="transportation" value="bicycle">
+                    <label for="bicycle">Bicycle</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="public_transport" name="transportation" value="public_transport">
+                    <label for="public_transport">Public Transport</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="walking" name="transportation" value="walking">
+                    <label for="walking">Walking</label>
+                </div>
+            </div>
+
+            <div class="question" id="question6">
+                <p>What's your favorite genre of music?</p>
+                <div class="radio-container">
+                    <input type="radio" id="pop" name="music_genre" value="pop">
+                    <label for="pop">Pop</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="rock" name="music_genre" value="rock">
+                    <label for="rock">Rock</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="hiphop" name="music_genre" value="hiphop">
+                    <label for="hiphop">Hip Hop</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="jazz" name="music_genre" value="jazz">
+                    <label for="jazz">Jazz</label>
+                </div>
+            </div>
+
+            <div class="question" id="question7">
+                <p>What's your preferred type of vacation?</p>
+                <div class="radio-container">
+                    <input type="radio" id="beach" name="vacation_preference" value="beach">
+                    <label for="beach">Beach getaway</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="mountain" name="vacation_preference" value="mountain">
+                    <label for="mountain">Mountain retreat</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="city" name="vacation_preference" value="city">
+                    <label for="city">Exploring a city</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="adventure" name="vacation_preference" value="adventure">
+                    <label for="adventure">Adventure travel</label>
+                </div>
+            </div>
+
+            <div class="question" id="question8">
+                <p>What's your favorite leisure activity?</p>
+                <div class="radio-container">
+                    <input type="radio" id="reading" name="leisure_activity" value="reading">
+                    <label for="reading">Reading</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="watching_movies" name="leisure_activity" value="watching_movies">
+                    <label for="watching_movies">Watching Movies</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="playing_sports" name="leisure_activity" value="playing_sports">
+                    <label for="playing_sports">Playing Sports</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="painting" name="leisure_activity" value="painting">
+                    <label for="painting">Painting</label>
+                </div>
+            </div>
+
+            <div class="question" id="question9">
+                <p>Which season do you enjoy the most?</p>
+                <div class="radio-container">
+                    <input type="radio" id="spring" name="favorite_season" value="spring">
+                    <label for="spring">Spring</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="summer" name="favorite_season" value="summer">
+                    <label for="summer">Summer</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="autumn" name="favorite_season" value="autumn">
+                    <label for="autumn">Autumn</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="winter" name="favorite_season" value="winter">
+                    <label for="winter">Winter</label>
+                </div>
+            </div>
+
+            <div class="question" id="question10">
+                <p>What's your preferred way to spend a weekend?</p>
+                <div class="radio-container">
+                    <input type="radio" id="traveling" name="weekend_preference" value="traveling">
+                    <label for="traveling">Traveling</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="relaxing_at_home" name="weekend_preference" value="relaxing_at_home">
+                    <label for="relaxing_at_home">Relaxing at Home</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="outdoor_activities" name="weekend_preference" value="outdoor_activities">
+                    <label for="outdoor_activities">Outdoor Activities</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="spending_time_with_friends" name="weekend_preference" value="spending_time_with_friends">
+                    <label for="spending_time_with_friends">Time with Friends</label>
+                </div>
+            </div>
+        <button id="submit-btn" type="submit">SUBMETER</button>
+        </form>
+    </div>
+    <script src="/js/form.js"></script>
+</body>
+</html>

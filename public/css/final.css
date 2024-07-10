@@ -1,0 +1,150 @@
+body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, #F5EBE0, rgb(83, 160, 87) 38%, rgb(255, 247, 173) 68%, #fdead7);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(1);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h3 {
+    text-align: center;
+    margin: auto;
+    font-size: 3vh;
+    font-family: montserrat;
+    color: #4b983f;
+    opacity: 0;
+    animation: fadeInDown 1s forwards 0.2s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 9vh;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    font-size: 7vh;
+    font-family: montserrat;
+    color: #175c0c;
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeInDown 1s forwards 1s;
+}
+
+h2 {
+    text-align: center;
+    margin: auto;
+    font-size: 5vh;
+    font-family: montserrat;
+    color: #175c0c;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeInDown 1s forwards 2s;
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 20px;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 10px;
+    min-width: 310px;
+    margin-top: 10px;
+}
+
+.progressbar {
+    background-color: #1DCF00;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.badge {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInDown 1s forwards 0.5s;
+}
+
+.trophy {
+    height: 50vh;
+    opacity: 0.87;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
