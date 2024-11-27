@@ -75,7 +75,7 @@ h3 {
     font-family: montserrat;
     color: #4b983f;
     opacity: 0;
-    animation: fadeInDown 1s forwards 0.2s;
+    animation: fadeInDown 1s forwards 3s;
 }
 
 .container {
@@ -94,7 +94,7 @@ h1 {
     color: #175c0c;
     margin-top: 50px;
     opacity: 0;
-    animation: fadeInDown 1s forwards 1s;
+    animation: fadeInDown 1s forwards 3.5s;
 }
 
 h2 {
@@ -105,7 +105,7 @@ h2 {
     color: #175c0c;
     margin-top: 15px;
     opacity: 0;
-    animation: fadeInDown 1s forwards 2s;
+    animation: fadeInDown 1s forwards 4.5s;
 }
 
 .progress-bar-container {
@@ -146,5 +146,23 @@ h2 {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.party{
+    background-image: url("/images/best-gif.gif");
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 5%;
+    animation: fadeInDown 3s forwards, fadeOut 3s forwards 2s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

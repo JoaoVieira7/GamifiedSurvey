@@ -1,23 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     var progressbar = document.getElementById("progressbar");
+    var progressMessage = document.getElementById("progressMessage");
     var answeredGroups = new Set();
     var totalGroups = document.querySelectorAll('.question').length;
     var formLoadedAt = new Date().toISOString();
-
-    function gifAppears() {
-        const gif = document.createElement('div');
-        gif.classList.add('party');
-      
-        const gifImage = document.createElement('img');
-        gifImage.src = '/images/best-gif.gif'; // Substitua por sua URL do gif
-        gif.appendChild(gifImage);
-      
-        document.body.appendChild(gif); // Ajuste o elemento pai se necessário
-        setTimeout(() => { document.body.removeChild(gif) }, 4000);
-        var audiofinal = new Audio('/audio/Finished.mp3');
-        audiofinal.play();
-    }
-
+    
     function updateProgressBar() {
         var progress = (answeredGroups.size / totalGroups) * 100;
         progressbar.style.width = progress + '%';
@@ -30,28 +17,112 @@ document.addEventListener('DOMContentLoaded', function () {
             progressbar.style.backgroundColor = '#2DB517';
         } else {
             progressbar.style.backgroundColor = '#1DCF00';
-            gifAppears();
+        }
+
+        if (progress >= 50 && progress < 60) {
+            progressMessage.textContent = "Estás quase lá!";
+            progressMessage.style.display = 'block';
+        } else if (progress === 70 ) {
+            progressMessage.textContent = "Estás na reta final!";
+            progressMessage.style.display = 'block';
+        } else if (progress === 100) {
+            progressMessage.textContent = "Parabéns Conseguiste!";
+            progressMessage.style.display = 'block';
+        } else {
+            progressMessage.style.display = 'none'; // Ocultar mensagem se não atingir 50%, 70% ou 100%
         }
     }
+
+        // Aplica a cor de fundo dinâmica
+        document.querySelectorAll('.question').forEach(function (question, index) {
+            var questionNumber = index + 1; // Convertendo índice baseado em 0 para número baseado em 1
+            
+            if (questionNumber % 3 === 0 && questionNumber % 5 === 0) {
+                question.style.backgroundColor = '#3f9a3f'; // Cor para perguntas divisíveis por 3 e 5
+            } else if (questionNumber % 3 === 0) {
+                question.style.backgroundColor = '#40A578'; // Cor para perguntas divisíveis por 3
+            } else if (questionNumber % 5 === 0) {
+                question.style.backgroundColor = '#76B345'; // Cor para perguntas divisíveis por 5
+            } else if (questionNumber % 2 === 0) {
+                question.style.backgroundColor = '#538052'; // Cor para perguntas divisíveis por 2
+            } else {
+                question.style.backgroundColor = '#77A969'; // Cor para outras perguntas
+            }
+        });
 
     function playSound() {
         var audio1 = new Audio('/audio/duolingo-correct.mp3');
         var audio2 = new Audio('/audio/correct-choice.mp3');
-        Math.floor(Math.random() * 2) + 1;
-        if (Math.floor(Math.random() * 2) + 1 == 1) {
+        var randomChoice = Math.floor(Math.random() * 2) + 1;
+        if (randomChoice == 1) {
             audio1.play();
         } else {
             audio2.play();
         }
     }
 
-    document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
-        radio.addEventListener('click', function (event) {
-            answeredGroups.add(event.target.name);
+    function addShakeAnimation(questionElement) {
+        questionElement.classList.add('shake');
+        setTimeout(() => {
+            questionElement.classList.remove('shake');
+        }, 500); // A duração da animação é 0.5s
+    }
+
+    function handleInputEvent(event) {
+        const questionElement = event.target.closest('.question');
+    
+        if (questionElement) {
+            answeredGroups.add(questionElement.id);
             updateProgressBar();
             playSound();
-        });
+            addShakeAnimation(questionElement);
+    
+            // Navegar para a próxima pergunta
+            const nextQuestion = questionElement.nextElementSibling;
+            if (nextQuestion && nextQuestion.classList.contains('question')) {
+                nextQuestion.classList.add('active');      // Adiciona 'active' à próxima
+    
+                // Scroll automático para a próxima pergunta
+                setTimeout(() => {
+                    nextQuestion.scrollIntoView({ behavior: 'smooth' });
+                }, 750);
+            }
+        }
+    }
+    
+
+    document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+        radio.addEventListener('click', handleInputEvent);
     });
+
+    document.querySelectorAll('textarea').forEach(function (textarea) {
+        textarea.addEventListener('blur', handleInputEvent);
+    });
+
+    document.querySelectorAll('select').forEach(function (select) {
+        select.addEventListener('change', handleInputEvent);
+    });
+
+    // Função para atualizar o input hidden com a ordem das frutas
+    function updateSortedList() {
+        var sortedIDs = $("#sortable").sortable("toArray", { attribute: "data-id" });
+        $("#sortedList").val(sortedIDs.join(","));
+        const questionElement = document.getElementById('question11');
+        answeredGroups.add(questionElement.id);
+        updateProgressBar();
+        playSound();
+        addShakeAnimation(questionElement);
+    }
+
+    // Tornar a lista ordenável usando jQuery UI
+    $("#sortable").sortable({
+        update: function (event, ui) {
+            updateSortedList();
+        }
+    }).disableSelection();
+
+    // Inicializar a lista ordenada no carregamento da página
+    updateSortedList();
 
     document.querySelector('.survey-form').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -119,4 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Erro ao registrar dados de saída:', error);
         }
     });
+
+
+    
 });

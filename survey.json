@@ -1,0 +1,21 @@
+{
+  "question1": "asda?",
+  "type1": "multiple",
+  "question1_option1": "sd",
+  "question1_option2": "dd",
+  "question1_option3": "ss",
+  "question2": "quem vai ganhar?",
+  "type2": "ordering",
+  "question2_option1": "Biden",
+  "question2_option2": "Trump",
+  "question2_option3": "Kamala Harris",
+  "question2_option4": "RFK",
+  "question3": "asdad",
+  "type3": "select",
+  "question3_option1": "as",
+  "question3_option2": "sd",
+  "question3_option3": "fg",
+  "question4": "asdadadd",
+  "type4": "text",
+  "question4_option1": ""
+}

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 const path = require('path');
 const app = express();
+const fs = require('fs');
 
 // Configuração do bodyParser para interpretar JSON
 app.use(bodyParser.json());
@@ -151,6 +152,25 @@ app.get('/tables', (req, res) => {
 app.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 })
+
+app.get('/create_survey', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'create_survey.html'));
+})
+
+app.get('/newsurvey', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'newsurvey.html'));
+})
+
+app.post('/create_survey', (req, res) => {
+    const surveyData = req.body;
+    fs.writeFileSync('survey.json', JSON.stringify(surveyData, null, 2));
+    res.json({ success: true });
+});
+
+app.get('/get_survey', (req, res) => {
+    const surveyData = fs.readFileSync('survey.json');
+    res.json(JSON.parse(surveyData));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
