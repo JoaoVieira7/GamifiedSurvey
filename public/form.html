@@ -12,19 +12,28 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
+    <div class="background" style="background-color: azure; width: 100%; height: 100%;">
     <div class="progress-bar-container">
         <div class="progressbar" id="progressbar" style="transition: width 0.5s ease-in-out; width: 0%;"></div>
     </div> 
+</div>
+    <div id="funFactContainer">
+        <div id="balaoDeFala">
+            <p id="funFact"></p>
+        </div>
+        <img id="funFactImage" src="images/Assistente_Tese-removebg-preview.png" alt="Fun Fact Image">
 
+    </div>
+    
     <div class="survey-container">
         <div id="progressMessage" class="progress-message"></div>
-        <h1>Inquérito de Satisfação com a Universidade</h1>
+        <h1>Inquérito de Satisfação Universidade do Minho</h1>
         <p class="estimate">(Tempo estimado: 3 minutos)</p>
         <div class="divider"></div>
         <form action="/submit" id="survey-form" class="survey-form" method="POST">
             
             <!-- Seção 1: Sobre você e o curso -->
-            <div class="question active" id="question1">
+            <div class="question" id="question1">
                 <p>Qual é o seu curso?</p>
                 <select name="curso">
                     <option value="">Escolha um curso</option> <!-- Opção padrão sem valor -->
@@ -158,146 +167,281 @@
             </div>
             
 
-            <!-- Seção 2: Experiência na Universidade -->
             <div class="question" id="question5">
                 <p>Participa em atividades extracurriculares?</p>
-                <select name="atividades_extracurriculares">
-                    <option value="nao">Não</option>
-                    <option value="desportos">Desportos</option>
-                    <option value="clubes">Clubes</option>
-                    <option value="voluntariado">Voluntariado</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="atividades_nao" name="atividades_extracurriculares" value="nao">
+                    <label for="atividades_nao">Não</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="atividades_desportos" name="atividades_extracurriculares" value="desportos">
+                    <label for="atividades_desportos">Desportos</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="atividades_clubes" name="atividades_extracurriculares" value="clubes">
+                    <label for="atividades_clubes">Clubes</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="atividades_voluntariado" name="atividades_extracurriculares" value="voluntariado">
+                    <label for="atividades_voluntariado">Voluntariado</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="atividades_outro" name="atividades_extracurriculares" value="outro">
+                    <label for="atividades_outro">Outro</label>
+                </div>
             </div>
+    
             <div class="question" id="question6">
                 <p>Como avalia o suporte académico oferecido pela universidade?</p>
-                <select name="suporte_academico">
-                    <option value="pessimo">Péssimo</option>
-                    <option value="ruim">Ruim</option>
-                    <option value="bom">Bom</option>
-                    <option value="otimo">Ótimo</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="suporte_pessimo" name="suporte_academico" value="pessimo">
+                    <label for="suporte_pessimo">Péssimo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="suporte_mau" name="suporte_academico" value="mau">
+                    <label for="suporte_mau">Mau</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="suporte_bom" name="suporte_academico" value="bom">
+                    <label for="suporte_bom">Bom</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="suporte_otimo" name="suporte_academico" value="otimo">
+                    <label for="suporte_otimo">Ótimo</label>
+                </div>
             </div>
+    
             <div class="question" id="question7">
                 <p>Considera que os recursos da universidade são adequados para o seu curso?</p>
-                <select name="recursos_universidade">
-                    <option value="pessimo">Péssimo</option>
-                    <option value="ruim">Ruim</option>
-                    <option value="bom">Bom</option>
-                    <option value="otimo">Ótimo</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="recursos_pessimo" name="recursos_universidade" value="pessimo">
+                    <label for="recursos_pessimo">Péssimo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="recursos_mau" name="recursos_universidade" value="mau">
+                    <label for="recursos_mau">Mau</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="recursos_bom" name="recursos_universidade" value="bom">
+                    <label for="recursos_bom">Bom</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="recursos_otimo" name="recursos_universidade" value="otimo">
+                    <label for="recursos_otimo">Ótimo</label>
+                </div>
             </div>
-
-            <!-- Seção 3: Preparação para o Mercado de Trabalho -->
+    
             <div class="question" id="question8">
                 <p>Sente-se preparado para entrar no mercado de trabalho após a conclusão do curso?</p>
-                
-                <select name="preparacao_mercado">
-                    <option value="muito_preparado">Muito preparado</option>
-                    <option value="preparado">Preparado</option>
-                    <option value="neutro">Neutro</option>
-                    <option value="pouco_preparado">Pouco preparado</option>
-                    <option value="nada_preparado">Nada preparado</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="preparacao_muito_preparado" name="preparacao_mercado" value="muito_preparado">
+                    <label for="preparacao_muito_preparado">Muito preparado</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="preparacao_preparado" name="preparacao_mercado" value="preparado">
+                    <label for="preparacao_preparado">Preparado</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="preparacao_neutro" name="preparacao_mercado" value="neutro">
+                    <label for="preparacao_neutro">Neutro</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="preparacao_pouco_preparado" name="preparacao_mercado" value="pouco_preparado">
+                    <label for="preparacao_pouco_preparado">Pouco preparado</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="preparacao_nada_preparado" name="preparacao_mercado" value="nada_preparado">
+                    <label for="preparacao_nada_preparado">Nada preparado</label>
+                </div>
             </div>
+    
             <div class="question" id="question9">
                 <p>Já teve alguma experiência profissional relevante durante o curso?</p>
-                <select name="experiencia_profissional">
-                    <option value="sim_estagio">Sim, estágio</option>
-                    <option value="sim_emprego">Sim, emprego a tempo parcial</option>
-                    <option value="nao">Não</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="experiencia_estagio" name="experiencia_profissional" value="sim_estagio">
+                    <label for="experiencia_estagio">Sim, estágio</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="experiencia_emprego" name="experiencia_profissional" value="sim_emprego">
+                    <label for="experiencia_emprego">Sim, emprego a tempo parcial</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="experiencia_nao" name="experiencia_profissional" value="nao">
+                    <label for="experiencia_nao">Não</label>
+                </div>
             </div>
+    
             <div class="question" id="question10">
                 <p>A universidade oferece oportunidades suficientes de estágio e emprego?</p>
-                <select name="oportunidades_estagio">
-                    <option value="muito_suficientes">Muito suficientes</option>
-                    <option value="suficientes">Suficientes</option>
-                    <option value="neutro">Neutro</option>
-                    <option value="pouco_suficientes">Pouco suficientes</option>
-                    <option value="nada_suficientes">Nada suficientes</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="oportunidades_muito_suficientes" name="oportunidades_estagio" value="muito_suficientes">
+                    <label for="oportunidades_muito_suficientes">Muito suficientes</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="oportunidades_suficientes" name="oportunidades_estagio" value="suficientes">
+                    <label for="oportunidades_suficientes">Suficientes</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="oportunidades_neutro" name="oportunidades_estagio" value="neutro">
+                    <label for="oportunidades_neutro">Neutro</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="oportunidades_pouco_suficientes" name="oportunidades_estagio" value="pouco_suficientes">
+                    <label for="oportunidades_pouco_suficientes">Pouco suficientes</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="oportunidades_nada_suficientes" name="oportunidades_estagio" value="nada_suficientes">
+                    <label for="oportunidades_nada_suficientes">Nada suficientes</label>
+                </div>
             </div>
+    
             <div class="question" id="question11">
                 <p>Como avalia a orientação profissional e de carreira fornecida pela universidade?</p>
-                <select name="orientacao_profissional">
-                    <option value="pessimo">Péssimo</option>
-                    <option value="ruim">Ruim</option>
-                    <option value="bom">Bom</option>
-                    <option value="otimo">Ótimo</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="orientacao_pessimo" name="orientacao_profissional" value="pessimo">
+                    <label for="orientacao_pessimo">Péssimo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="orientacao_mau" name="orientacao_profissional" value="mau">
+                    <label for="orientacao_mau">Mau</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="orientacao_bom" name="orientacao_profissional" value="bom">
+                    <label for="orientacao_bom">Bom</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="orientacao_otimo" name="orientacao_profissional" value="otimo">
+                    <label for="orientacao_otimo">Ótimo</label>
+                </div>
             </div>
-
-            <!-- Seção 4: Objetivos e Preferências de Carreira -->
+    
             <div class="question" id="question12">
                 <p>Em que tipo de empresa gostaria de trabalhar após a conclusão do curso?</p>
-                <select name="tipo_empresa">
-                    <option value="startup">Startup</option>
-                    <option value="multinacional">Multinacional</option>
-                    <option value="empresa_publica">Empresa pública</option>
-                    <option value="pequena_media">Pequena ou média empresa</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="tipo_empresa_startup" name="tipo_empresa" value="startup">
+                    <label for="tipo_empresa_startup">Startup</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="tipo_empresa_multinacional" name="tipo_empresa" value="multinacional">
+                    <label for="tipo_empresa_multinacional">Multinacional</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="tipo_empresa_publica" name="tipo_empresa" value="empresa_publica">
+                    <label for="tipo_empresa_publica">Empresa pública</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="tipo_empresa_pequena_media" name="tipo_empresa" value="pequena_media">
+                    <label for="tipo_empresa_pequena_media">Pequena ou média empresa</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="tipo_empresa_outro" name="tipo_empresa" value="outro">
+                    <label for="tipo_empresa_outro">Outro</label>
+                </div>
             </div>
+    
             <div class="question" id="question13">
                 <p>Em que área ou setor gostaria de trabalhar?</p>
-                <select name="area_trabalho">
-                    <option value="tecnologia">Tecnologia</option>
-                    <option value="saude">Saúde</option>
-                    <option value="financeiro">Financeiro</option>
-                    <option value="educacao">Educação</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="area_tecnologia" name="area_trabalho" value="tecnologia">
+                    <label for="area_tecnologia">Tecnologia</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="area_saude" name="area_trabalho" value="saude">
+                    <label for="area_saude">Saúde</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="area_financeiro" name="area_trabalho" value="financeiro">
+                    <label for="area_financeiro">Financeiro</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="area_educacao" name="area_trabalho" value="educacao">
+                    <label for="area_educacao">Educação</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="area_outro" name="area_trabalho" value="outro">
+                    <label for="area_outro">Outro</label>
+                </div>
             </div>
+    
             <div class="question" id="question14">
                 <p>Quais são os seus objetivos de carreira a curto prazo (1-3 anos)?</p>
-                <select name="objetivos_carreira_curto">
-                    <option value="experiencia">Ganhar experiência</option>
-                    <option value="especializacao">Especializar-se na área</option>
-                    <option value="progressao">Progredir na carreira</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_curto_experiencia" name="objetivos_carreira_curto" value="experiencia">
+                    <label for="objetivos_curto_experiencia">Ganhar experiência</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_curto_especializacao" name="objetivos_carreira_curto" value="especializacao">
+                    <label for="objetivos_curto_especializacao">Especializar-se na área</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_curto_progressao" name="objetivos_carreira_curto" value="progressao">
+                    <label for="objetivos_curto_progressao">Progredir na carreira</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_curto_outro" name="objetivos_carreira_curto" value="outro">
+                    <label for="objetivos_curto_outro">Outro</label>
+                </div>
             </div>
+    
             <div class="question" id="question15">
                 <p>Quais são os seus objetivos de carreira a longo prazo (5+ anos)?</p>
-                <select name="objetivos_carreira_longo">
-                    <option value="lideranca">Assumir uma posição de liderança</option>
-                    <option value="empreender">Abrir o próprio negócio</option>
-                    <option value="especializacao">Especializar-se ainda mais</option>
-                    <option value="outro">Outro</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_longo_lideranca" name="objetivos_carreira_longo" value="lideranca">
+                    <label for="objetivos_longo_lideranca">Assumir uma posição de liderança</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_longo_empreender" name="objetivos_carreira_longo" value="empreender">
+                    <label for="objetivos_longo_empreender">Abrir o próprio negócio</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_longo_especializacao" name="objetivos_carreira_longo" value="especializacao">
+                    <label for="objetivos_longo_especializacao">Especializar-se ainda mais</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_longo_outro" name="objetivos_carreira_longo" value="outro">
+                    <label for="objetivos_longo_outro">Outro</label>
+                </div>
             </div>
-
-            <!-- Seção 5: Equilíbrio entre Vida Pessoal e Profissional -->
+    
             <div class="question" id="question16">
                 <p>Como avalia o seu equilíbrio entre vida pessoal e profissional?</p>
-                <select name="equilibrio_vida">
-                    <option value="pessimo">Péssimo</option>
-                    <option value="ruim">Ruim</option>
-                    <option value="bom">Bom</option>
-                    <option value="otimo">Ótimo</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="equilibrio_pessimo" name="equilibrio_vida" value="pessimo">
+                    <label for="equilibrio_pessimo">Péssimo</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="equilibrio_mau" name="equilibrio_vida" value="mau">
+                    <label for="equilibrio_mau">Mau</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="equilibrio_bom" name="equilibrio_vida" value="bom">
+                    <label for="equilibrio_bom">Bom</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="orientacao_otimo" name="equilibrio_vida" value="otimo">
+                    <label for="orientacao_otimo">Ótimo</label>
+                </div>
             </div>
             <div class="question" id="question17">
                 <p>Que medidas considera importantes para manter esse equilíbrio? (Escolha até 3)</p>
-                <div class="radio-container">
-                    <input type="radio" id="flexibilidade_horario" name="medidas_equilibrio" value="flexibilidade_horario">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="flexibilidade_horario" name="medidas_equilibrio" value="flexibilidade_horario">
                     <label for="flexibilidade_horario">Flexibilidade de horário</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="trabalho_remoto" name="medidas_equilibrio" value="trabalho_remoto">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="trabalho_remoto" name="medidas_equilibrio" value="trabalho_remoto">
                     <label for="trabalho_remoto">Trabalho remoto</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="desconexao_digital" name="medidas_equilibrio" value="desconexao_digital">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="desconexao_digital" name="medidas_equilibrio" value="desconexao_digital">
                     <label for="desconexao_digital">Desconexão digital</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="atividades_lazer" name="medidas_equilibrio" value="atividades_lazer">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="atividades_lazer" name="medidas_equilibrio" value="atividades_lazer">
                     <label for="atividades_lazer">Atividades de lazer</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="outro_medidas" name="medidas_equilibrio" value="outro">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="outro_medidas" name="medidas_equilibrio" value="outro">
                     <label for="outro_medidas">Outro</label>
                 </div>
             </div>
@@ -305,47 +449,47 @@
             <!-- Seção 6: Áreas de Melhoria no Curso -->
             <div class="question" id="question18">
                 <p>Quais são, na sua opinião, as principais falhas do seu curso atual? (Escolha até 3)</p>
-                <div class="radio-container">
-                    <input type="radio" id="falhas_conteudo" name="falhas_curso" value="conteudo">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="falhas_conteudo" name="falhas_curso" value="conteudo">
                     <label for="falhas_conteudo">Conteúdo desatualizado</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="falhas_metodologia" name="falhas_curso" value="metodologia">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="falhas_metodologia" name="falhas_curso" value="metodologia">
                     <label for="falhas_metodologia">Metodologia de ensino</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="falhas_recursos" name="falhas_curso" value="recursos">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="falhas_recursos" name="falhas_curso" value="recursos">
                     <label for="falhas_recursos">Falta de recursos</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="falhas_suporte" name="falhas_curso" value="suporte">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="falhas_suporte" name="falhas_curso" value="suporte">
                     <label for="falhas_suporte">Suporte académico insuficiente</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="outro_falhas" name="falhas_curso" value="outro">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="outro_falhas" name="falhas_curso" value="outro">
                     <label for="outro_falhas">Outro</label>
                 </div>
             </div>
             <div class="question" id="question19">
                 <p>Que mudanças gostaria de ver implementadas no currículo do curso? (Escolha até 3)</p>
-                <div class="radio-container">
-                    <input type="radio" id="mudancas_pratica" name="mudancas_curriculo" value="mais_pratica">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="mudancas_pratica" name="mudancas_curriculo" value="mais_pratica">
                     <label for="mudancas_pratica">Mais aulas práticas</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="mudancas_conteudo" name="mudancas_curriculo" value="conteudo_atualizado">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="mudancas_conteudo" name="mudancas_curriculo" value="conteudo_atualizado">
                     <label for="mudancas_conteudo">Conteúdo atualizado</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="mudancas_tecnologia" name="mudancas_curriculo" value="tecnologia">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="mudancas_tecnologia" name="mudancas_curriculo" value="tecnologia">
                     <label for="mudancas_tecnologia">Integração de novas tecnologias</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="mudancas_estagio" name="mudancas_curriculo" value="mais_estagios">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="mudancas_estagio" name="mudancas_curriculo" value="mais_estagios">
                     <label for="mudancas_estagio">Mais oportunidades de estágio</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="outro_mudancas" name="mudancas_curriculo" value="outro">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="outro_mudancas" name="mudancas_curriculo" value="outro">
                     <label for="outro_mudancas">Outro</label>
                 </div>
             </div>
@@ -353,57 +497,70 @@
             <!-- Seção 7: Feedback Geral -->
             <div class="question" id="question20">
                 <p>De que maneira a universidade pode melhorar para ajudar os alunos na integração ao mercado de trabalho? (Escolha até 3)</p>
-                <div class="radio-container">
-                    <input type="radio" id="melhorias_mentoria" name="melhorias_universidade" value="mentoria">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="melhorias_mentoria" name="melhorias_universidade" value="mentoria">
                     <label for="melhorias_mentoria">Programas de mentoria</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="melhorias_parcerias" name="melhorias_universidade" value="parcerias">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="melhorias_parcerias" name="melhorias_universidade" value="parcerias">
                     <label for="melhorias_parcerias">Parcerias com empresas</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="melhorias_workshops" name="melhorias_universidade" value="workshops">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="melhorias_workshops" name="melhorias_universidade" value="workshops">
                     <label for="melhorias_workshops">Workshops e seminários</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="melhorias_recrutamento" name="melhorias_universidade" value="recrutamento">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="melhorias_recrutamento" name="melhorias_universidade" value="recrutamento">
                     <label for="melhorias_recrutamento">Feiras de recrutamento</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="outro_melhorias" name="melhorias_universidade" value="outro">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="outro_melhorias" name="melhorias_universidade" value="outro">
                     <label for="outro_melhorias">Outro</label>
                 </div>
             </div>
             <div class="question" id="question21">
                 <p>Considera que a relação entre teoria e prática no curso é adequada?</p>
-                <select name="relacao_teoria_pratica">
-                    <option value="muito_adequada">Muito adequada</option>
-                    <option value="adequada">Adequada</option>
-                    <option value="neutro">Neutro</option>
-                    <option value="pouco_adequada">Pouco adequada</option>
-                    <option value="nada_adequada">Nada adequada</option>
-                </select>
+                <div class="radio-container">
+                    <input type="radio" id="nada_adequada" name="relacao_teoria_pratica" value="nada_adequada">
+                    <label for="nada_adequada">Nada adequada</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="pouco_adequada" name="relacao_teoria_pratica" value="pouco_adequada">
+                    <label for="pouco_adequada">Pouco adequada</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="neutro" name="relacao_teoria_pratica" value="neutro">
+                    <label for="neutro">Neutro</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="adequada" name="relacao_teoria_pratica" value="adequada">
+                    <label for="adequada">Adequada</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="muito_adequada" name="relacao_teoria_pratica" value="muito_adequada">
+                    <label for="muito_adequada">Muito adequada</label>
+                </div>
             </div>
             <div class="question" id="question22">
                 <p>Tem alguma sugestão para melhorar a experiência dos alunos na universidade? (Escolha até 3)</p>
-                <div class="radio-container">
-                    <input type="radio" id="sugestoes_recursos" name="sugestoes_experiencia" value="mais_recursos">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="sugestoes_recursos" name="sugestoes_experiencia" value="mais_recursos">
                     <label for="sugestoes_recursos">Mais recursos educativos</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="sugestoes_eventos" name="sugestoes_experiencia" value="mais_eventos">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="sugestoes_eventos" name="sugestoes_experiencia" value="mais_eventos">
                     <label for="sugestoes_eventos">Mais eventos e atividades</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="sugestoes_interacao" name="sugestoes_experiencia" value="interacao_professores">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="sugestoes_interacao" name="sugestoes_experiencia" value="interacao_professores">
                     <label for="sugestoes_interacao">Maior interação com os professores</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="sugestoes_infraestrutura" name="sugestoes_experiencia" value="melhor_infraestrutura">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="sugestoes_infraestrutura" name="sugestoes_experiencia" value="melhor_infraestrutura">
                     <label for="sugestoes_infraestrutura">Melhoria na infraestrutura</label>
                 </div>
-                <div class="radio-container">
-                    <input type="radio" id="outro_sugestoes" name="sugestoes_experiencia" value="outro">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="outro_sugestoes" name="sugestoes_experiencia" value="outro">
                     <label for="outro_sugestoes">Outro</label>
                 </div>
             </div>

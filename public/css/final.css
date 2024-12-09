@@ -72,10 +72,11 @@ h3 {
     text-align: center;
     margin: auto;
     font-size: 3vh;
-    font-family: montserrat;
+    font-family: system-ui;
     color: #4b983f;
     opacity: 0;
-    animation: fadeInDown 1s forwards 3s;
+    animation: fadeInDown 1s forwards 5.5s;
+
 }
 
 .container {
@@ -83,14 +84,13 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 9vh;
 }
 
 h1 {
     text-align: center;
     margin: auto;
     font-size: 7vh;
-    font-family: montserrat;
+    font-family: system-ui;
     color: #175c0c;
     margin-top: 50px;
     opacity: 0;
@@ -101,7 +101,7 @@ h2 {
     text-align: center;
     margin: auto;
     font-size: 5vh;
-    font-family: montserrat;
+    font-family: system-ui;
     color: #175c0c;
     margin-top: 15px;
     opacity: 0;
@@ -134,7 +134,7 @@ h2 {
 }
 
 .trophy {
-    height: 50vh;
+    height: 35vh;
     opacity: 0.87;
 }
 

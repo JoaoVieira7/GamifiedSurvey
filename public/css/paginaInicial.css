@@ -1,24 +1,78 @@
-body{
+body {
+    display: flex; /* Ativa Flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    width: 100vw;
+    margin: 0; /* Remove margens padrão */
     text-align: center;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    margin: auto;
-    background-color: #00784D;
-    color: palegoldenrod;
+    font-family: 'Arial', sans-serif;
+    background: rgb(253,234,215);
+    background: radial-gradient(circle, rgba(253,234,215,1) 0%, rgba(83,160,87,1) 100%);
+    gap: 30px;
+    color: #5c5c5c;
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    overflow: none;
 }
 
-.container{
-    padding-top: 50px;
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
-h1, h2, h3{
-    margin: 50px;
+.container {
+    margin: auto; /* Opcional, pode ajudar com conteúdos dinâmicos */
+    background-color: #ffffffd1;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+    max-width: 600px; /* Limita a largura máxima da container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-p{
-    left: 1%;
-    bottom: 0%;
-    position: absolute;
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    position: absolute; /* Torna o h1 fixo no topo */
+    top: 0%; /* Ajusta a posição do h1 */
+    z-index: 0;
+    font-size: 5vh;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-size: 3vh;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2vh;
+    color: #7f8c8d;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
 button {
@@ -26,15 +80,26 @@ button {
     color: white; /* Cor do texto */
     padding: 16px 20px; /* Espaçamento interno para tornar o botão maior */
     border: none; /* Remove a borda padrão */
+    border-radius: 20px;
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    border-radius: 5px; /* Adiciona bordas arredondadas ao botão */ 
-    font-size: 2rem;
-    font-family: monospace;
+    font-size: 1.8rem;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
 }
 
-button:hover{
-    background-color: #c12f12;
-    transition-duration: 0.4s;
-    cursor:pointer;
+button:hover {
+    background-color: #367a38;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
-    
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+footer p {
+    font-style: italic;
+}

@@ -34,45 +34,102 @@ function convertISOToPostgresFormat(isoString) {
     return date.toISOString(); // Retorna a data formatada para o PostgreSQL
 }
 
+
 // Rota para receber os dados do formulário
 app.post('/submit', async (req, res) => {
+    console.log('Dados recebidos no backend:', req.body); // Verifica os dados no backend
+
     const {
-        player,
-        workenvironment,
-        color,
-        cuisine,
-        transportation,
-        music_genre,
-        vacation_preference,
-        leisure_activity,
-        favorite_season,
-        weekend_preference,
+        curso,
+        anos_curso,
+        motivo_curso,
+        satisfacao_curso,
+        atividades_extracurriculares,
+        suporte_academico,
+        recursos_universidade,
+        preparacao_mercado,
+        experiencia_profissional,
+        oportunidades_estagio,
+        orientacao_profissional,
+        tipo_empresa,
+        area_trabalho,
+        objetivos_carreira_curto,
+        objetivos_carreira_longo,
+        equilibrio_vida,
+        medidas_equilibrio,
+        falhas_curso,
+        mudancas_curriculo,
+        melhorias_universidade,
+        relacao_teoria_pratica,
+        sugestoes_experiencia,
         form_loaded_at
     } = req.body;
 
     // Logs para debug
     console.log('Dados recebidos:', req.body);
 
+
+    const medidasEquilibrioValues = medidas_equilibrio || null;
+    const falhasCursoValues = falhas_curso || null;
+    const mudancasCurriculoValues = mudancas_curriculo || null;
+    const melhoriasUniversidadeValues = melhorias_universidade || null;
+    const sugestoesExperienciaValues = sugestoes_experiencia || null;
+
     // Converter datas
     const formLoadedAtConverted = convertISOToPostgresFormat(form_loaded_at);
     const formSubmittedAt = convertISOToPostgresFormat(new Date().toISOString());
 
     const query = `
-        INSERT INTO gamified_responses (player, workenvironment, color, cuisine, transportation, music_genre, vacation_preference, leisure_activity, favorite_season, weekend_preference, form_loaded_at, form_submitted_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+        INSERT INTO final_table (curso,
+        anos_curso,
+        motivo_curso,
+        satisfacao_curso,
+        atividades_extracurriculares,
+        suporte_academico,
+        recursos_universidade,
+        preparacao_mercado,
+        experiencia_profissional,
+        oportunidades_estagio,
+        orientacao_profissional,
+        tipo_empresa,
+        area_trabalho,
+        objetivos_carreira_curto,
+        objetivos_carreira_longo,
+        equilibrio_vida,
+        medidas_equilibrio,
+        falhas_curso,
+        mudancas_curriculo,
+        melhorias_universidade,
+        relacao_teoria_pratica,
+        sugestoes_experiencia,
+        form_loaded_at,
+        form_submitted_at)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24)
     `;
 
     const values = [
-        player || null,
-        workenvironment || null,
-        color || null,
-        cuisine || null,
-        transportation || null,
-        music_genre || null,
-        vacation_preference || null,
-        leisure_activity || null,
-        favorite_season || null,
-        weekend_preference || null,
+        curso || null,
+        anos_curso || null,
+        motivo_curso || null,
+        satisfacao_curso || null,
+        atividades_extracurriculares || null,
+        suporte_academico || null,
+        recursos_universidade || null,
+        preparacao_mercado || null,
+        experiencia_profissional || null,
+        oportunidades_estagio || null,
+        orientacao_profissional || null,
+        tipo_empresa || null,
+        area_trabalho || null,
+        objetivos_carreira_curto || null,
+        objetivos_carreira_longo || null,
+        equilibrio_vida || null,
+        medidasEquilibrioValues ,
+        falhasCursoValues ,
+        mudancasCurriculoValues ,
+        melhoriasUniversidadeValues ,
+        relacao_teoria_pratica || null,
+        sugestoesExperienciaValues ,
         formLoadedAtConverted || null,
         formSubmittedAt
     ];
@@ -84,14 +141,15 @@ app.post('/submit', async (req, res) => {
         console.error('Erro ao inserir dados:', err);
         res.status(500).json({ message: 'Erro ao inserir dados no banco de dados', error: err });
     }
+    
 });
 
-// Rota para registrar a tentativa de saída da página
+ // Rota para registrar a tentativa de saída da página
 app.post('/leave', async (req, res) => {
     const { form_loaded_at, form_submitted_at } = req.body;
 
     const query = `
-        INSERT INTO retention_data (form_loaded_at, form_submitted_at)
+        INSERT INTO retention_data_gamified (form_loaded_at, form_submitted_at)
         VALUES ($1, $2)
     `;
 
@@ -103,15 +161,16 @@ app.post('/leave', async (req, res) => {
     try {
         await pool.query(query, values);
         res.status(200).json({ message: 'Dados de saída registrados com sucesso' });
+
     } catch (err) {
         console.error('Erro ao registrar dados de saída:', err);
         res.status(500).json({ message: 'Erro ao registrar dados no banco de dados', error: err });
     }
 });
-
+ 
 
 // Rota para buscar os dados do banco de dados
-app.get('/data', async (req, res) => {
+/* app.get('/data', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM gamified_responses ORDER BY id ASC');
         res.json(result.rows);
@@ -119,58 +178,62 @@ app.get('/data', async (req, res) => {
         console.error('Erro ao buscar dados:', err);
         res.status(500).json({ message: 'Erro ao buscar dados do banco de dados', error: err });
     }
-});
+}); */
 
-// Rota para buscar os dados do banco de dados da retenção dos Users
+ // Rota para buscar os dados do banco de dados da retenção dos Users
 app.get('/retention-data', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM retention_data ORDER BY id ASC ');
+        const result = await pool.query('SELECT * FROM retention_data_gamified ORDER BY id ASC ');
         res.json(result.rows);
     } catch (err) {
         console.error('Erro ao buscar dados:', err);
         res.status(500).json({ message: 'Erro ao buscar dados do banco de dados', error: err });
     }
-});
+}); 
 
 // Rota para lidar com métodos POST incorretos
 app.get('/post', (req, res) => {
     res.status(404).send('Endpoint POST não existe. Use o método POST para enviar dados para /submit.');
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'PaginaInicial.html'));
+})
+
 app.get('/final', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'final.html'));
 });
 // Rota básica para a raiz
-app.get('/', (req, res) => {
+app.get('/form', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'form.html'));
 });
 
-app.get('/tables', (req, res) => {
+/* app.get('/tables', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'tables.html'));
-})
+}) */
 
-app.get('/dashboard', (req, res) => {
+/* app.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
-})
+}) */
 
-app.get('/create_survey', (req, res) => {
+/* app.get('/create_survey', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'create_survey.html'));
-})
+}) */
 
-app.get('/newsurvey', (req, res) => {
+/* app.get('/newsurvey', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'newsurvey.html'));
-})
+}) */
 
-app.post('/create_survey', (req, res) => {
+/* app.post('/create_survey', (req, res) => {
     const surveyData = req.body;
     fs.writeFileSync('survey.json', JSON.stringify(surveyData, null, 2));
     res.json({ success: true });
-});
+}); */
 
-app.get('/get_survey', (req, res) => {
+/* app.get('/get_survey', (req, res) => {
     const surveyData = fs.readFileSync('survey.json');
     res.json(JSON.parse(surveyData));
-});
+}); */
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -1,5 +1,6 @@
 body{
     background-color: #efefef;  
+    font-family: system-ui; 
 }
 
 * {
@@ -13,14 +14,14 @@ span{
 h1{
     text-align: center;
     font-size: 4vh;
-    font-family: monospace;
+    font-family: system-ui; 
     margin: auto;
     color: #5c5c5c;
 }
 .estimate{
     text-align: center;
-    font-size: 2vh;
-    font-family: monospace;
+    font-size: 1.5vh;
+    font-family: system-ui; 
     margin: auto;
     color: #5c5c5c;
 }
@@ -72,7 +73,7 @@ h1{
 
 .progress-bar-container{
     width: 80%;
-    height: 25px;
+    height: 30px;
     background-color: rgb(224, 255, 223);
     border-radius: 20px;
     margin: auto;
@@ -87,7 +88,7 @@ h1{
 
 .progressbar {
     background-color: #1DCF00;
-    height: 25px;
+    height: 30px;
     border-radius: 20px;
 }
 
@@ -96,14 +97,14 @@ h1{
     color:white;
     border-radius: 25px;
     margin: 0 auto;
-    font-size: 2vh;
-    font-family:monospace;
+    font-size: 1.5vh;
+    font-family: system-ui; 
     padding-left: 10px;
     background-color: #3f9a3f;
     padding: 1vh 5vw 5vh 5vw;
     margin-bottom: 30px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition-duration: 1s;
@@ -131,8 +132,8 @@ textarea{
     border: none;
     border-radius: 7px;
     background-color: beige;
-    font-size: 2vh;
-    font-family: monospace;
+    font-size: 1.5vh;
+    font-family: system-ui; 
 }
 
 select{
@@ -141,7 +142,7 @@ select{
     color: white;
     background-color: #357a38af;
     padding: 8px;
-    font-size: 2vh;
+    font-size: 1.5vh;
 }
 
 .progress-message {
@@ -154,9 +155,9 @@ select{
     border-radius: 9px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    font-size: 5vh;
+    font-size: 2.5vh;
     color: white;
-    font-family:monospace;
+    font-family: system-ui; 
     font-weight: bold;
     font-style: italic;
     display: none;
@@ -204,7 +205,7 @@ select{
 [id^="sortable"] li {
     margin: 5px 3px 3px 3px;
     padding: 2vh;
-    font-size: 2vh;
+    font-size: 1.5vh;
     height: 18px;
     cursor: move;
     background-color: #357a38af;
@@ -232,7 +233,7 @@ select{
         margin: auto;
         border-radius: 15px;
         min-width: 350px;
-        margin-top: 4%;
+        margin-top: 10%;
         padding-top: 10px;
         box-shadow: 2px 2px 39px grey;
     }
@@ -242,6 +243,8 @@ select{
         padding: 2px;
         font-size: 2vh;
         font-weight: 500;
+        max-width: 45vw;
+        margin: 15px auto 15px auto;
     }
     
     /* Estilos para os radio buttons */
@@ -249,7 +252,7 @@ select{
         display: flex;
         align-items: center;
         margin-bottom: 10px;
-        font-size: 2vh;
+        font-size: 1.5vh;
         justify-content: center;
     }
     
@@ -261,11 +264,11 @@ select{
         display: block;
         padding: 10px 20px;
         border-radius: 25px;
-        background-color: #357a38af; /* Background color for unselected state */
+        background-color: #217d25af; /* Background color for unselected state */
         color: white;
         cursor: pointer;
         user-select: none;
-        font-size: 2vh;
+        font-size: 1.5vh;
         transition: background-color 0.3s ease;
         width: 90%; /* Add this line */
         box-sizing: border-box; /* Add this line */
@@ -276,6 +279,41 @@ select{
     }
     
     .radio-container label:hover {
+        background-color: #4caf50; /* Background color on hover */
+    }
+
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 1.5vh;
+        justify-content: center;
+    }
+    
+    .checkbox-container input[type="checkbox"] {
+        display: none;
+    }
+    
+    .checkbox-container label {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #217d25af; /* Background color for unselected state */
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        font-size: 1.5vh;
+        transition: background-color 0.3s ease;
+        width: 90%; /* Add this line */
+        box-sizing: border-box; /* Add this line */
+    }
+    
+    .checkbox-container input[type="checkbox"]:checked + label {
+        background-color: #6fbf73; /* Background color for selected state */
+    }
+    
+    .checkbox-container label:hover {
         background-color: #4caf50; /* Background color on hover */
     }
     
@@ -326,7 +364,7 @@ form{
          color:white;
          border: none;
          border-radius: 20px;
-         font-family:  monospace;
+         font-family: system-ui; 
          font-size: 20px;
          cursor: pointer;
          margin: auto;
@@ -437,6 +475,7 @@ form{
         grid-gap: 20px;
         justify-content: center;
     }
+
         
 
     .party{
@@ -447,16 +486,105 @@ form{
         top: 5%;
     }
 
-}
+}*/
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 900px) {
 
-    form{
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        grid-gap: 20px;
-        justify-content: center;
+    #funFactImage{
+        height: 12vw !important;
+        position: fixed;
+        top: 20% !important;
     }
 
+    #balao_de_fala{
+        opacity: 1;
+        z-index: 1 !important;
+    background-color: white;
+    max-width: 41%;
+    max-height: 200px;
+    position: fixed;
+    border-radius: 30%;
+    padding: 4% !important;
+    text-align: center;
+    }
+
+}
+
+
+ /* Container principal */
+ #funFactContainer {
+    position: fixed;
+    bottom: 10%; /* Define a altura do assistente na tela */
+    left: 2%; /* Define a posição horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+/* Imagem do assistente */
+#funFactImage {
+    height: 100px; /* Tamanho fixo da imagem */
+    max-width: 100px; /* Proporção da largura */
+    position: relative;
+}
+
+/* Balão de fala */
+#balaoDeFala {
+    background-color: white;
+    color: black;
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 15px;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1rem; /* Tamanho do texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px; /* Largura fixa */
+    height: 150px; /* Altura fixa */
+    position: relative;
+    overflow: hidden; /* Esconde texto que exceda o espaço */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+}
+
+/* Triângulo do balão */
+#balaoDeFala::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Ajusta o triângulo */
+    left: 20%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Texto no balão */
+#funFact {
+    margin: 0;
+    color: #3f9a3f; /* Tom de verde para combinar com o tema */
+ /* Adiciona "..." ao final se o texto for muito longo */
+}
+
+/* Responsividade para dispositivos pequenos */
+@media (max-width: 1000px) {
+    #funFactContainer {
+        left: 5%; /* Ajusta a posição horizontal */
+        bottom: 5%; /* Ajusta a altura */
+        align-items: flex-start;
+    }
+
+    #funFactImage {
+        height: 15vw; /* Aumenta a proporção para telas menores */
+    }
+
+    #balaoDeFala {
+        max-width: 200px; /* Limita o tamanho do balão */
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
 }
