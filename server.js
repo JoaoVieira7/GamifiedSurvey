@@ -9,14 +9,25 @@ const fs = require('fs');
 // Configuração do bodyParser para interpretar JSON
 app.use(bodyParser.json());
 
-// Configuração da conexão com o PostgreSQL
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-  });
+  connectionString: process.env.DB_URL, // Usa a URL do banco de dados do .env
+  ssl: {
+    rejectUnauthorized: false, // Para conexões seguras com o banco de dados, especialmente no Render
+  },
+  // Ajuste as configurações do pool conforme necessário
+  max: 10, // Número máximo de conexões simultâneas no pool
+  idleTimeoutMillis: 30000, // Tempo máximo de inatividade antes de fechar a conexão
+  connectionTimeoutMillis: 2000, // Tempo máximo de espera para estabelecer uma nova conexão
+});
+
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Erro na conexão com o banco de dados:', err);
+  } else {
+    console.log('Conexão com o banco de dados bem-sucedida:', res.rows);
+  }
+});
+
 
 // Servir arquivos estáticos da pasta "public"
 app.use(express.static(path.join(__dirname, 'public')));
