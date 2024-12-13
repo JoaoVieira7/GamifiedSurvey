@@ -118,7 +118,11 @@
                 <div class="radio-container">
                     <input type="radio" id="5ano" name="anos_curso" value="5ano">
                     <label for="5ano">5º ano</label>
-                </div>                
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="6oumaisano" name="anos_curso" value="6oumaisano">
+                    <label for="6oumaisano">6+ anos</label>
+                </div>                 
             </div>
             <div class="question" id="question3">
                 <p>Por que escolheu este curso?</p>
@@ -212,24 +216,25 @@
             </div>
     
             <div class="question" id="question7">
-                <p>Considera que os recursos da universidade são adequados para o seu curso?</p>
+                <p>Na sua opinião, os recursos da universidade são adequados para o seu curso?</p>
                 <div class="radio-container">
                     <input type="radio" id="recursos_pessimo" name="recursos_universidade" value="pessimo">
-                    <label for="recursos_pessimo">Péssimo</label>
+                    <label for="recursos_pessimo">Muito inadequados</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="recursos_mau" name="recursos_universidade" value="mau">
-                    <label for="recursos_mau">Mau</label>
+                    <label for="recursos_mau">Inadequados</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="recursos_bom" name="recursos_universidade" value="bom">
-                    <label for="recursos_bom">Bom</label>
+                    <label for="recursos_bom">Adequados</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="recursos_otimo" name="recursos_universidade" value="otimo">
-                    <label for="recursos_otimo">Ótimo</label>
+                    <label for="recursos_otimo">Muito adequados</label>
                 </div>
             </div>
+            
     
             <div class="question" id="question8">
                 <p>Sente-se preparado para entrar no mercado de trabalho após a conclusão do curso?</p>
@@ -242,10 +247,6 @@
                     <label for="preparacao_preparado">Preparado</label>
                 </div>
                 <div class="radio-container">
-                    <input type="radio" id="preparacao_neutro" name="preparacao_mercado" value="neutro">
-                    <label for="preparacao_neutro">Neutro</label>
-                </div>
-                <div class="radio-container">
                     <input type="radio" id="preparacao_pouco_preparado" name="preparacao_mercado" value="pouco_preparado">
                     <label for="preparacao_pouco_preparado">Pouco preparado</label>
                 </div>
@@ -254,7 +255,6 @@
                     <label for="preparacao_nada_preparado">Nada preparado</label>
                 </div>
             </div>
-    
             <div class="question" id="question9">
                 <p>Já teve alguma experiência profissional relevante durante o curso?</p>
                 <div class="radio-container">
@@ -387,15 +387,19 @@
                 <p>Quais são os seus objetivos de carreira a longo prazo (5+ anos)?</p>
                 <div class="radio-container">
                     <input type="radio" id="objetivos_longo_lideranca" name="objetivos_carreira_longo" value="lideranca">
-                    <label for="objetivos_longo_lideranca">Assumir uma posição de liderança</label>
+                    <label for="objetivos_longo_lideranca">Assumir uma posição de liderança na empresa</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="objetivos_longo_empreender" name="objetivos_carreira_longo" value="empreender">
-                    <label for="objetivos_longo_empreender">Abrir o próprio negócio</label>
+                    <label for="objetivos_longo_empreender">Criar e gerir o próprio negócio ou startup</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="objetivos_longo_especializacao" name="objetivos_carreira_longo" value="especializacao">
-                    <label for="objetivos_longo_especializacao">Especializar-se ainda mais</label>
+                    <label for="objetivos_longo_especializacao">Aprofundar conhecimentos e especializar-se na área</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="objetivos_longo_transicao" name="objetivos_carreira_longo" value="transicao">
+                    <label for="objetivos_longo_transicao">Mudar de área</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="objetivos_longo_outro" name="objetivos_carreira_longo" value="outro">
@@ -527,10 +531,6 @@
                 <div class="radio-container">
                     <input type="radio" id="pouco_adequada" name="relacao_teoria_pratica" value="pouco_adequada">
                     <label for="pouco_adequada">Pouco adequada</label>
-                </div>
-                <div class="radio-container">
-                    <input type="radio" id="neutro" name="relacao_teoria_pratica" value="neutro">
-                    <label for="neutro">Neutro</label>
                 </div>
                 <div class="radio-container">
                     <input type="radio" id="adequada" name="relacao_teoria_pratica" value="adequada">

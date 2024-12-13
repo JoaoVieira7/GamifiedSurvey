@@ -1,334 +1,337 @@
-body{
-    background-color: #efefef;  
-    font-family: system-ui; 
+body {
+  background-color: #efefef;
+  font-family: system-ui;
 }
 
 * {
-    box-sizing: border-box;
-  }
-
-span{
-    color:#5c5c5c;
+  box-sizing: border-box;
 }
 
-h1{
-    text-align: center;
-    font-size: 4vh;
-    font-family: system-ui; 
-    margin: auto;
-    color: #5c5c5c;
-}
-.estimate{
-    text-align: center;
-    font-size: 1.5vh;
-    font-family: system-ui; 
-    margin: auto;
-    color: #5c5c5c;
+span {
+  color: #5c5c5c;
 }
 
-.divider{background-color: #77a96957;
-    width: 100%;
-    height: 1px;
-    margin: 10px 0px 10px 0px;
+h1 {
+  text-align: center;
+  font-size: 4vh;
+  font-family: system-ui;
+  margin: auto;
+  color: #5c5c5c;
+}
+.estimate {
+  text-align: center;
+  font-size: 1.5vh;
+  font-family: system-ui;
+  margin: auto;
+  color: #5c5c5c;
 }
 
-.party{
-    background-image: url("/images/best-gif.gif");
-    height: 100%;
-    width: 75%;
-    position: fixed;
-    top: 5%;
-    animation: fadeInDown 3s forwards, fadeOut 3s forwards 2s;
+.divider {
+  background-color: #77a96957;
+  width: 100%;
+  height: 1px;
+  margin: 10px 0px 10px 0px;
+}
+
+.party {
+  background-image: url("/images/best-gif.gif");
+  height: 100%;
+  width: 75%;
+  position: fixed;
+  top: 5%;
+  animation: fadeInDown 3s forwards, fadeOut 3s forwards 2s;
 }
 
 @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-#progress-icon{
-    position: relative;
-    right: 8%;
-    font-size: 30px;
+#progress-icon {
+  position: relative;
+  right: 8%;
+  font-size: 30px;
 }
 
 .material-symbols-outlined {
-    font-size: larger;
+  font-size: larger;
 }
 
-.progress-bar-container{
-    width: 80%;
-    height: 30px;
-    background-color: rgb(224, 255, 223);
-    border-radius: 20px;
-    margin: auto;
-    margin-bottom: 10px;
-    min-width: 310px;
-    position: fixed;
-    z-index: 1;
-    left: 10%;
-    top: 1%;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+.progress-bar-container {
+  width: 80%;
+  height: 30px;
+  background-color: rgb(224, 255, 223);
+  border-radius: 20px;
+  margin: auto;
+  margin-bottom: 10px;
+  min-width: 310px;
+  position: fixed;
+  z-index: 1;
+  left: 10%;
+  top: 1%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .progressbar {
-    background-color: #1DCF00;
-    height: 30px;
-    border-radius: 20px;
+  background-color: #1dcf00;
+  height: 30px;
+  border-radius: 20px;
 }
 
 .question {
-    width: 75%;
-    color:white;
-    border-radius: 25px;
-    margin: 0 auto;
-    font-size: 1.5vh;
-    font-family: system-ui; 
-    padding-left: 10px;
-    background-color: #3f9a3f;
-    padding: 1vh 5vw 5vh 5vw;
-    margin-bottom: 30px;
-    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition-duration: 1s;
-
+  width: 75%;
+  color: white;
+  border-radius: 25px;
+  margin: 0 auto;
+  font-size: 1.5vh;
+  font-family: system-ui;
+  padding-left: 10px;
+  background-color: #3f9a3f;
+  padding: 1vh 5vw 5vh 5vw;
+  margin-bottom: 30px;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition-duration: 1s;
 }
 
-.question.active{
-    display: flex;
-    animation: fadeInDown 3s forwards, forwards 2s;
-
+.question.active {
+  display: flex;
+  animation: fadeInDown 3s forwards, forwards 2s;
 }
 .question:has(select) {
-    justify-content: flex-start !important;
+  justify-content: flex-start !important;
 }
 .question:has(textarea) {
-    justify-content: flex-start !important;
+  justify-content: flex-start !important;
 }
 
-
-textarea{
-    max-width: 100%;
-    min-width: 60%;
-    max-height: 100%;
-    min-height: 30%;
-    border: none;
-    border-radius: 7px;
-    background-color: beige;
-    font-size: 1.5vh;
-    font-family: system-ui; 
+textarea {
+  max-width: 100%;
+  min-width: 60%;
+  max-height: 100%;
+  min-height: 30%;
+  border: none;
+  border-radius: 7px;
+  background-color: beige;
+  font-size: 1.5vh;
+  font-family: system-ui;
 }
 
-select{
-    border: none;
-    border-radius: 10px;
-    color: white;
-    background-color: #357a38af;
-    padding: 8px;
-    font-size: 1.5vh;
+select {
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #357a38af;
+  padding: 8px;
+  font-size: 1.5vh;
 }
 
 .progress-message {
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #004e00;
-    padding: 10px;
-    border-radius: 9px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 2.5vh;
-    color: white;
-    font-family: system-ui; 
-    font-weight: bold;
-    font-style: italic;
-    display: none;
-    animation: fadeInDown 1s ;
-    text-align: center;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #004e00;
+  padding: 10px;
+  border-radius: 9px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 2.5vh;
+  color: white;
+  font-family: system-ui;
+  font-weight: bold;
+  font-style: italic;
+  display: none;
+  animation: fadeInDown 1s;
+  text-align: center;
 }
 
 .match-question .match-pair {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-
 @keyframes tilt-n-move-shaking {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(5px, 5px) rotate(5deg); }
-    50% { transform: translate(0, 0) rotate(0deg); }
-    75% { transform: translate(-5px, 5px) rotate(-5deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 .shake {
-    animation: tilt-n-move-shaking 0.6s ease-in-out;
+  animation: tilt-n-move-shaking 0.6s ease-in-out;
 }
-
 
 /* Aplica a qualquer ID que comece com "sortable" */
 [id^="sortable"] {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 [id^="sortable"] li {
-    margin: 5px 3px 3px 3px;
-    padding: 2vh;
-    font-size: 1.5vh;
-    height: 18px;
-    cursor: move;
-    background-color: #357a38af;
-    border-color: beige;
-    color: white;
-    display: flex;
-    align-items: center;
-    border-radius: 15px;
+  margin: 5px 3px 3px 3px;
+  padding: 2vh;
+  font-size: 1.5vh;
+  height: 18px;
+  cursor: move;
+  background-color: #357a38af;
+  border-color: beige;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
 }
 
 [id^="sortable"] li:hover {
-    background-color: #538052;
+  background-color: #538052;
 }
 
 .question:hover {
-    background-color: #469b39 !important;
-    width: 80%;
-    transition-duration: 1s;
+  background-color: #469b39 !important;
+  width: 80%;
+  transition-duration: 1s;
 }
 
-
-    .survey-container {
-        background-color: #ffedda80;
-        width: 80%;
-        margin: auto;
-        border-radius: 15px;
-        min-width: 350px;
-        margin-top: 10%;
-        padding-top: 10px;
-        box-shadow: 2px 2px 39px grey;
-    }
-    
-    .question p {
-        text-align: center;
-        padding: 2px;
-        font-size: 2vh;
-        font-weight: 500;
-        max-width: 45vw;
-        margin: 15px auto 15px auto;
-    }
-    
-    /* Estilos para os radio buttons */
-    .radio-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        font-size: 1.5vh;
-        justify-content: center;
-    }
-    
-    .radio-container input[type="radio"] {
-        display: none;
-    }
-    
-    .radio-container label {
-        display: block;
-        padding: 10px 20px;
-        border-radius: 25px;
-        background-color: #217d25af; /* Background color for unselected state */
-        color: white;
-        cursor: pointer;
-        user-select: none;
-        font-size: 1.5vh;
-        transition: background-color 0.3s ease;
-        width: 90%; /* Add this line */
-        box-sizing: border-box; /* Add this line */
-    }
-    
-    .radio-container input[type="radio"]:checked + label {
-        background-color: #6fbf73; /* Background color for selected state */
-    }
-    
-    .radio-container label:hover {
-        background-color: #4caf50; /* Background color on hover */
-    }
-
-
-    .checkbox-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        font-size: 1.5vh;
-        justify-content: center;
-    }
-    
-    .checkbox-container input[type="checkbox"] {
-        display: none;
-    }
-    
-    .checkbox-container label {
-        display: block;
-        padding: 10px 20px;
-        border-radius: 25px;
-        background-color: #217d25af; /* Background color for unselected state */
-        color: white;
-        cursor: pointer;
-        user-select: none;
-        font-size: 1.5vh;
-        transition: background-color 0.3s ease;
-        width: 90%; /* Add this line */
-        box-sizing: border-box; /* Add this line */
-    }
-    
-    .checkbox-container input[type="checkbox"]:checked + label {
-        background-color: #6fbf73; /* Background color for selected state */
-    }
-    
-    .checkbox-container label:hover {
-        background-color: #4caf50; /* Background color on hover */
-    }
-    
-    
-input{
-    margin-bottom: 20px;
-    margin-left: 20px;
+.survey-container {
+  background-color: #ffedda80;
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  min-width: 350px;
+  margin-top: 13%;
+  padding-top: 10px;
+  box-shadow: 2px 2px 39px grey;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    padding: 20px 20px;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    justify-content: space-evenly;
+.question p {
+  text-align: center;
+  padding: 2px;
+  font-size: 2vh;
+  font-weight: 500;
+  max-width: 45vw;
+  margin: 15px auto 15px auto;
+}
+
+/* Estilos para os radio buttons */
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.5vh;
+  justify-content: center;
+}
+
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.radio-container label {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #217d25af; /* Background color for unselected state */
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.5vh;
+  transition: background-color 0.3s ease;
+  width: 90%; /* Add this line */
+  box-sizing: border-box; /* Add this line */
+}
+
+.radio-container input[type="radio"]:checked + label {
+  background-color: #6fbf73; /* Background color for selected state */
+}
+
+.radio-container label:hover {
+  background-color: #4caf50; /* Background color on hover */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.5vh;
+  justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container label {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #217d25af; /* Background color for unselected state */
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.5vh;
+  transition: background-color 0.3s ease;
+  width: 90%; /* Add this line */
+  box-sizing: border-box; /* Add this line */
+}
+
+.checkbox-container input[type="checkbox"]:checked + label {
+  background-color: #6fbf73; /* Background color for selected state */
+}
+
+.checkbox-container label:hover {
+  background-color: #4caf50; /* Background color on hover */
+}
+
+input {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  justify-content: space-evenly;
 }
 /*
 #question1, #question3, #question9, #question10{
@@ -359,35 +362,32 @@ form{
     background-color: #4F6F52;
 } */
 
-    button{
-        background-color: green;
-         color:white;
-         border: none;
-         border-radius: 20px;
-         font-family: system-ui; 
-         font-size: 20px;
-         cursor: pointer;
-         margin: auto;
-         padding: 7px;
-         padding-left: 50px;
-         padding-right: 50px;
-         display: flex;
-         justify-content: center;
-         margin-top: 7px;
-         
-     }
+button {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-family: system-ui;
+  font-size: 20px;
+  cursor: pointer;
+  margin: auto;
+  padding: 7px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 7px;
+}
 
-     button:hover{
-        background-color: #206306;
-        border-radius: 50px;
-        transition-duration: 0.5s;
-        color:#ffffff;
-        
-     }
-     .party{
-        margin-left: 12%;
-     }
-
+button:hover {
+  background-color: #206306;
+  border-radius: 50px;
+  transition-duration: 0.5s;
+  color: #ffffff;
+}
+.party {
+  margin-left: 12%;
+}
 
 /*@media screen and (max-width: 1450px) {
 
@@ -489,102 +489,99 @@ form{
 }*/
 
 @media screen and (max-width: 900px) {
+  #funFactImage {
+    height: 12vw !important;
+    position: fixed;
+    top: 20% !important;
+  }
 
-    #funFactImage{
-        height: 12vw !important;
-        position: fixed;
-        top: 20% !important;
-    }
-
-    #balao_de_fala{
-        opacity: 1;
-        z-index: 1 !important;
+  #balao_de_fala {
+    opacity: 1;
+    z-index: 1 !important;
     background-color: white;
     max-width: 41%;
     max-height: 200px;
     position: fixed;
     border-radius: 30%;
-    padding: 4% !important;
+    padding: 3% !important;
     text-align: center;
-    }
-
+  }
 }
 
-
- /* Container principal */
- #funFactContainer {
-    position: fixed;
-    bottom: 10%; /* Define a altura do assistente na tela */
-    left: 2%; /* Define a posição horizontal */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 1000;
-    opacity: 1;
-    transition: opacity 0.5s;
+/* Container principal */
+#funFactContainer {
+  position: fixed;
+  bottom: 10%; /* Define a altura do assistente na tela */
+  left: 2%; /* Define a posição horizontal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 /* Imagem do assistente */
 #funFactImage {
-    height: 100px; /* Tamanho fixo da imagem */
-    max-width: 100px; /* Proporção da largura */
-    position: relative;
+  height: 100px; /* Tamanho fixo da imagem */
+  max-width: 100px; /* Proporção da largura */
+  position: relative;
 }
 
 /* Balão de fala */
 #balaoDeFala {
-    background-color: white;
-    color: black;
-    border-radius: 20px; /* Bordas arredondadas */
-    padding: 15px;
-    text-align: center;
-    font-family: system-ui, sans-serif;
-    font-weight: 500;
-    font-size: 1rem; /* Tamanho do texto */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 250px; /* Largura fixa */
-    height: 150px; /* Altura fixa */
-    position: relative;
-    overflow: hidden; /* Esconde texto que exceda o espaço */
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    opacity: 0;
+  background-color: white;
+  color: black;
+  border-radius: 20px; /* Bordas arredondadas */
+  padding: 5px;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1rem; /* Tamanho do texto */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 250px; /* Largura fixa */
+  height: 130px; /* Altura fixa */
+  position: relative;
+  overflow: hidden; /* Esconde texto que exceda o espaço */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
 }
 
 /* Triângulo do balão */
 #balaoDeFala::after {
-    content: '';
-    position: absolute;
-    bottom: -10px; /* Ajusta o triângulo */
-    left: 20%;
-    border-width: 10px;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Ajusta o triângulo */
+  left: 20%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
 }
 
 /* Texto no balão */
 #funFact {
-    margin: 0;
-    color: #3f9a3f; /* Tom de verde para combinar com o tema */
- /* Adiciona "..." ao final se o texto for muito longo */
+  margin: 0;
+  color: #3f9a3f; /* Tom de verde para combinar com o tema */
+  /* Adiciona "..." ao final se o texto for muito longo */
 }
 
 /* Responsividade para dispositivos pequenos */
 @media (max-width: 1000px) {
-    #funFactContainer {
-        left: 5%; /* Ajusta a posição horizontal */
-        bottom: 5%; /* Ajusta a altura */
-        align-items: flex-start;
-    }
+  #funFactContainer {
+    left: 5%; /* Ajusta a posição horizontal */
+    bottom: 5%; /* Ajusta a altura */
+    align-items: flex-start;
+  }
 
-    #funFactImage {
-        height: 15vw; /* Aumenta a proporção para telas menores */
-    }
+  #funFactImage {
+    height: 15vw; /* Aumenta a proporção para telas menores */
+  }
 
-    #balaoDeFala {
-        max-width: 200px; /* Limita o tamanho do balão */
-        font-size: 0.9rem; /* Ajusta o tamanho do texto */
-    }
+  #balaoDeFala {
+    max-width: 200px; /* Limita o tamanho do balão */
+    font-size: 0.9rem; /* Ajusta o tamanho do texto */
+  }
 }
